@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pinku Cafe - Pesan Sekarang</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #ffe6f0;
+      padding: 30px;
+      color: #333;
+    }
+
+    h1 {
+      color: #d63384;
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e05592;
+    }
+
+    .kotak {
+      border: 2px solid #444;
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      margin: 30px auto;
+      background-color: #f2f2f2;
+    }
+
+    .kotak a {
+      display: block;
+      margin: 8px 0;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .kotak a:hover {
+      color: white;
+      background-color: #444;
+      padding-left: 10px;
+      border-radius: 5px;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: -10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Silakan Dipesan Sweetie</h1>
+
+<!-- Daftar Menu -->
+<h3>Makanan Berat</h3>
+<div class="kotak">
+  <a href="#">Nasi Goreng 25k</a>
+  <a href="#">Mie Goreng 22k</a>
+  <a href="#">Mie Rebus 22k</a>
+  <a href="#">Seblak 18k</a>
+</div>
+
+<h3>Dessert</h3>
+<div class="kotak">
+  <a href="#">Cheese Cake 15k</a>
+  <a href="#">Brownies 10k</a>
+  <a href="#">Cookies 10k</a>
+  <a href="#">Waffle 15k</a>
+</div>
+
+<h3>Cemilan</h3>
+<div class="kotak">
+  <a href="#">Kentang Goreng 13k</a>
+  <a href="#">Pisang Goreng 13k</a>
+  <a href="#">Tempe Mendoan 16k</a>
+  <a href="#">Keripik Singkong 10k</a>
+</div>
+
+<h3>Coffee</h3>
+<div class="kotak">
+  <a href="#">Coffee Latte 25k</a>
+  <a href="#">Kopi Susu 22k</a>
+  <a href="#">Vanilla Latte 22k</a>
+  <a href="#">Espresso 18k</a>
+  <a href="#">Americano 20k</a>
+</div>
+
+<h3>Juice</h3>
+<div class="kotak">
+  <a href="#">Mangga 8k</a>
+  <a href="#">Jeruk 5k</a>
+  <a href="#">Apel 12k</a>
+  <a href="#">Tomat 8k</a>
+  <a href="#">Naga 10k</a>
+</div>
+
+<h3>Moctail</h3>
+<div class="kotak">
+  <a href="#">Ocean Blue 16k</a>
+  <a href="#">Mojito 18k</a>
+  <a href="#">Blue Lagoon 14k</a>
+  <a href="#">Summer Orange 16k</a>
+  <a href="#">Pinky Berry 18k</a>
+</div>
+
+<!-- Form Pemesanan -->
+<form onsubmit="kirimPesanan(event)">
+  <label for="name">Nama Lengkap</label>
+  <input type="text" id="name" required>
+
+  <label for="phone">Nomor WhatsApp</label>
+  <input type="tel" id="phone" required>
+
+  <label for="menu">Menu yang Dipesan</label>
+  <input type="text" id="menu" placeholder="Contoh: Kopi Susu 2, Waffle 1" required>
+
+  <label for="notes">Catatan Tambahan</label>
+  <textarea id="notes" rows="4"></textarea>
+
+  <button type="submit">Kirim via WhatsApp</button>
+</form>
+
+<script>
+  function kirimPesanan(event) {
+    event.preventDefault();
+
+    const nama = document.getElementById('name').value;
+    const hp = document.getElementById('phone').value;
+    const menu = document.getElementById('menu').value;
+    const catatan = document.getElementById('notes').value;
+
+    const pesan = 
+`Halo Pinku Cafe! Saya mau pesan:
+- ${menu}
+
+Nama: ${nama}
+No. WA: ${hp}
+Catatan: ${catatan}`;
+
+    const encodedPesan = encodeURIComponent(pesan);
+    const nomorTujuan = '+62 813-7840-4036'; // Ganti dengan nomor WA kamu
+
+    window.open(https://wa.me/${nomorTujuan}?text=${encodedPesan}, '_blank');
+  }
+</script>
+
+</body>
+</html>
